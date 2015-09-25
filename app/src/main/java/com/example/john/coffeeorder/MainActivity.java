@@ -64,10 +64,16 @@ public class MainActivity extends AppCompatActivity {
 
                 TextView timeLeft = (TextView) findViewById(R.id.timeLeft);
                 Button order = (Button) findViewById(R.id.order);
+                ImageView coffee = (ImageView) findViewById(R.id.coffee);
 
                 public void onTick(long millisUntilFinished) {
                     timeLeft.setText("Your order will be ready in: \n" + millisUntilFinished / 1000 + "s");
                     order.setEnabled(false);
+                    if ((millisUntilFinished / 1000) % 2 == 0) {
+                        coffee.setImageResource(R.drawable.cof1);
+                    } else {
+                        coffee.setImageResource(R.drawable.cof2);
+                    }
                 }
 
                 public void onFinish() {
