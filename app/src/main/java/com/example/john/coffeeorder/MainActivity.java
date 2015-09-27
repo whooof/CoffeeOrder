@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 public class MainActivity extends AppCompatActivity {
 
     int quantity = 0;
@@ -48,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     public void addOne(View view) {
         quantity++;
         display(quantity);
+        displayPrice(calculatePrice());
     }
 
     public void subOne(View view) {
@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             quantity--;
             display(quantity);
+            displayPrice(calculatePrice());
         }
     }
 
@@ -89,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onFinish() {
                     timeLeft.setText("You can pick up yor order!");
                     order.setEnabled(true);
-                    displayPrice(calculatePrice());
+                    thankYou();
                 }
             }.start();
 
@@ -113,12 +114,18 @@ public class MainActivity extends AppCompatActivity {
     /**
      * This method displays the total price on the screen.
      *
-     * @param price takes calculated price to display
      */
-    private void displayPrice(int price) {
+    private void thankYou() {
         TextView thankYou = (TextView) findViewById(
                 R.id.thankYou);
-        thankYou.setText("Thank you!\nIt's " + price + "$ in total.");
+        thankYou.setText("Thank you!");
+
+    }
+
+    private void displayPrice(int price) {
+        TextView textView = (TextView) findViewById(
+                R.id.textView2);
+        textView.setText("Total price: " + price + "$");
 
     }
     /**
