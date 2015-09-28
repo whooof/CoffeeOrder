@@ -7,12 +7,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     int quantity = 0;
+    int default_price = 3;
     int price = 3;
 
     @Override
@@ -68,15 +70,15 @@ public class MainActivity extends AppCompatActivity {
         } else {
             ImageView coffee = (ImageView) findViewById(R.id.coffee);
             coffee.setVisibility(View.VISIBLE);
-            TextView summary = (TextView) findViewById(R.id.summary);
-            summary.setText("Thanks for ordering we are preparing your ");
-            if (quantity == 1) {
-                summary.append("1 coffee");
-            } else {
-                summary.append(quantity + " coffees");
-            }
+//            TextView summary = (TextView) findViewById(R.id.summary);
+//            summary.setText("Thanks for ordering we are preparing your ");
+//            if (quantity == 1) {
+//                summary.append("1 coffee");
+//            } else {
+//                summary.append(quantity + " coffees");
+//            }
 
-            new CountDownTimer(30000 * quantity, 1000) {
+            new CountDownTimer(1000 * quantity, 1000) {
 
                 TextView timeLeft = (TextView) findViewById(R.id.timeLeft);
                 Button order = (Button) findViewById(R.id.order);
@@ -89,11 +91,10 @@ public class MainActivity extends AppCompatActivity {
 
                 public void onFinish() {
                     timeLeft.setText("You can pick up yor order!");
-                    order.setEnabled(true);
                     thankYou();
+                    order.setEnabled(true);
                 }
             }.start();
-
 
         }
 
@@ -108,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
      */
 
     private int calculatePrice() {
+        price = checkSize();
         return price * quantity;
     }
 
@@ -116,10 +118,8 @@ public class MainActivity extends AppCompatActivity {
      *
      */
     private void thankYou() {
-        TextView thankYou = (TextView) findViewById(
-                R.id.thankYou);
+        TextView thankYou = (TextView) findViewById(R.id.thankYou);
         thankYou.setText("Thank you!");
-
     }
 
     private void displayPrice(int price) {
@@ -154,5 +154,23 @@ public class MainActivity extends AppCompatActivity {
             coffee.setImageResource(R.drawable.cof2);
         }
     }
+
+    public int checkSize() {
+        RadioGroup coffeeSize = (RadioGroup) findViewById(R.id.coffeeSize);
+        switch (coffeeSize.getCheckedRadioButtonId()) {
+            case R.id.radioButton:
+                price = default_price * 75 / 100;
+                break;
+            case R.id.radioButton1:
+                price = default_price;
+                break;
+            case R.id.radioButton2:
+                price = default_price * 150 / 100;
+                break;
+        }
+        return price;
+
+    }
+
 
 }
