@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    int quantity = 0;
+    int quantity = 1;
     int default_price = 3;
     int price = 3;
 
@@ -22,6 +22,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        displayPrice(calculatePrice());
+
+        RadioGroup coffeeSize = (RadioGroup) findViewById(R.id.coffeeSize);
+        coffeeSize.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                displayPrice(calculatePrice());
+            }
+
+        });
     }
 
     /**
@@ -53,8 +63,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void subOne(View view) {
-        if (quantity == 0) {
-            toasty("You can't go below 0!!", false);
+        if (quantity == 1) {
+            toasty("You can't go below 1!", false);
         } else {
             quantity--;
             display(quantity);
@@ -65,9 +75,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void submitOrder(View view) {
 
-        if (quantity == 0) {
-            toasty("You need to order at least one coffee!", false);
-        } else {
             ImageView coffee = (ImageView) findViewById(R.id.coffee);
             coffee.setVisibility(View.VISIBLE);
 //            TextView summary = (TextView) findViewById(R.id.summary);
@@ -91,15 +98,13 @@ public class MainActivity extends AppCompatActivity {
 
                 public void onFinish() {
                     timeLeft.setText("You can pick up yor order!");
-                    thankYou();
                     order.setEnabled(true);
+                    thankYou();
                 }
             }.start();
 
         }
 
-
-    }
 
     /**
      * Calculates price
@@ -155,6 +160,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
     public int checkSize() {
         RadioGroup coffeeSize = (RadioGroup) findViewById(R.id.coffeeSize);
         switch (coffeeSize.getCheckedRadioButtonId()) {
@@ -168,6 +174,7 @@ public class MainActivity extends AppCompatActivity {
                 price = default_price * 150 / 100;
                 break;
         }
+
         return price;
 
     }

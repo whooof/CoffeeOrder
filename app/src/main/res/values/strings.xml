@@ -3,4 +3,6 @@
 
     <string name="hello_world">Ready to Order?</string>
     <string name="action_settings">Settings</string>
+    <string name="total_price">Total Price:</string>
+    <string name="coffee_size_label">Choose size:</string>
 </resources>

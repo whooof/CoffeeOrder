@@ -52,7 +52,7 @@
                 android:layout_marginLeft="16dp"
                 android:ems="10"
                 android:inputType="number"
-                android:text="0"
+                android:text="1"
                 android:textAlignment="center" />
 
             <Button
@@ -82,7 +82,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="30dp"
-        android:text="Choose size:"
+        android:text="@string/coffee_size_label"
         android:textSize="20sp" />
 
         <RadioGroup
@@ -130,7 +130,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="18dp"
-        android:text="Total Price:"
+        android:text="@string/total_price"
         android:textSize="20sp"
         android:textStyle="italic" />
 
@@ -138,7 +138,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        >
+        android:orientation="horizontal">
 
 
         <ImageView
@@ -170,29 +170,24 @@
         android:id="@+id/thankYou"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:textColor="#795548"
-        android:textSize="24dp" />
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:textSize="24sp" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:id="@+id/order"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/button"
-            android:onClick="submitOrder"
-            android:shadowColor="#2B4B6B"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="5"
-            android:text="Order" />
-
-    </RelativeLayout>
-
+    <Button
+        android:id="@+id/order"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/button"
+        android:onClick="submitOrder"
+        android:shadowColor="#2B4B6B"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="Order" />
 
 
 </LinearLayout>
