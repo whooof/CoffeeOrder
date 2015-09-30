@@ -5,6 +5,11 @@
         <!-- Customize your theme here. -->
         <item name="android:colorPrimaryDark">#5D4037</item>
         <item name="android:colorPrimary">#795548</item>
+
     </style>
 
+    <style name="RadioButtonStyle" parent="@android:style/Widget.CompoundButton">
+        <item name="android:background">@drawable/radiobuttonstyle</item>
+        <item name="android:button">@drawable/radiobuttonimg</item>
+    </style>
 </resources>

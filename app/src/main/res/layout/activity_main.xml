@@ -81,7 +81,7 @@
         android:id="@+id/coffeeSizeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="30dp"
+        android:layout_marginRight="20dp"
         android:text="@string/coffee_size_label"
         android:textSize="20sp" />
 
@@ -89,36 +89,44 @@
             android:id="@+id/coffeeSize"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:weightSum="1">
 
             <RadioButton
                 android:id="@+id/radioButton"
+                style="@style/RadioButtonStyle"
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:layout_marginRight="20dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
                 android:checked="false"
                 android:clickable="true"
                 android:hint="S"
+                android:padding="5dp"
                 android:textStyle="bold" />
 
             <RadioButton
                 android:id="@+id/radioButton1"
+                style="@style/RadioButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="20dp"
+                android:layout_marginRight="15dp"
                 android:checked="true"
                 android:clickable="true"
                 android:hint="M"
+                android:padding="5dp"
                 android:textStyle="bold" />
 
             <RadioButton
                 android:id="@+id/radioButton2"
+                style="@style/RadioButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="20dp"
+                android:layout_weight="0.45"
                 android:checked="false"
                 android:clickable="true"
                 android:hint="L"
+                android:padding="5dp"
                 android:textStyle="bold" />
         </RadioGroup>
 
