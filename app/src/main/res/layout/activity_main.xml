@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#795548"
+    android:background="#7d6359"
     android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -29,14 +29,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginRight="32dp"
+            android:layout_marginRight="28dp"
             android:gravity="end"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/button"
                 android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_height="30dp"
                 android:background="@drawable/button"
                 android:onClick="subOne"
                 android:shadowColor="#2B4B6B"
@@ -45,20 +45,24 @@
                 android:shadowRadius="5"
                 android:text="-" />
 
-            <EditText
+            <TextView
                 android:id="@+id/display"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
+                android:layout_marginTop="5dp"
                 android:ems="10"
+                android:gravity="center"
                 android:inputType="number"
                 android:text="1"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/button3"
                 android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_height="30dp"
                 android:layout_marginLeft="16dp"
                 android:background="@drawable/button"
                 android:onClick="addOne"
@@ -136,7 +140,6 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:layout_marginBottom="18dp"
         android:text="@string/total_price"
         android:textSize="20sp"

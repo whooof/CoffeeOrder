@@ -5,7 +5,6 @@ import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -94,12 +93,13 @@ public class MainActivity extends AppCompatActivity {
                     timeLeft.setText("Your order will be ready in: \n" + millisUntilFinished / 1000 + "s");
                     order.setEnabled(false);
                     animate(millisUntilFinished);
+                    thankYou("");
                 }
 
                 public void onFinish() {
                     timeLeft.setText("You can pick up yor order!");
                     order.setEnabled(true);
-                    thankYou();
+                    thankYou("Thank you!");
                 }
             }.start();
 
@@ -122,9 +122,9 @@ public class MainActivity extends AppCompatActivity {
      * This method displays the total price on the screen.
      *
      */
-    private void thankYou() {
+    private void thankYou(String msg) {
         TextView thankYou = (TextView) findViewById(R.id.thankYou);
-        thankYou.setText("Thank you!");
+        thankYou.setText(msg);
     }
 
     private void displayPrice(int price) {
@@ -139,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
      * @param quantity how many coffees you've ordered
      */
     private void display(int quantity) {
-        EditText display = (EditText) findViewById(
+        TextView display = (TextView) findViewById(
                 R.id.display);
         display.setText("" + quantity);
 
