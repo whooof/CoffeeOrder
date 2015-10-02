@@ -14,7 +14,8 @@ public class MainActivity extends AppCompatActivity {
 
     int quantity = 1;
     int default_price = 3;
-    int price = 3;
+    double price = 3;
+    boolean i = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +57,11 @@ public class MainActivity extends AppCompatActivity {
      */
 
     public void addOne(View view) {
+
+        if (quantity >= 6 && i) {
+            toasty("Wow that's a big order! You will receive 20% discount", false);
+            i = false;
+        }
         quantity++;
         display(quantity);
         displayPrice(calculatePrice());
@@ -65,6 +71,10 @@ public class MainActivity extends AppCompatActivity {
         if (quantity == 1) {
             toasty("You can't go below 1!", false);
         } else {
+            if (!i && quantity < 6) {
+                price = price * 10 / 9;
+                i = true;
+            }
             quantity--;
             display(quantity);
             displayPrice(calculatePrice());
@@ -76,13 +86,6 @@ public class MainActivity extends AppCompatActivity {
 
             ImageView coffee = (ImageView) findViewById(R.id.coffee);
             coffee.setVisibility(View.VISIBLE);
-//            TextView summary = (TextView) findViewById(R.id.summary);
-//            summary.setText("Thanks for ordering we are preparing your ");
-//            if (quantity == 1) {
-//                summary.append("1 coffee");
-//            } else {
-//                summary.append(quantity + " coffees");
-//            }
 
             new CountDownTimer(1000 * quantity, 1000) {
 
@@ -100,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
                     timeLeft.setText("You can pick up yor order!");
                     order.setEnabled(true);
                     thankYou("Thank you!");
+                    order.setText("Order Again!");
                 }
             }.start();
 
@@ -113,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
      *
      */
 
-    private int calculatePrice() {
+    private double calculatePrice() {
         price = checkSize();
         return price * quantity;
     }
@@ -127,10 +131,10 @@ public class MainActivity extends AppCompatActivity {
         thankYou.setText(msg);
     }
 
-    private void displayPrice(int price) {
+    private void displayPrice(double price) {
         TextView textView = (TextView) findViewById(
                 R.id.textView2);
-        textView.setText("Total price: " + price + "$");
+        textView.setText("Total price: " + String.format("%.2f", price) + "$");
 
     }
     /**
@@ -161,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public int checkSize() {
+    public double checkSize() {
         RadioGroup coffeeSize = (RadioGroup) findViewById(R.id.coffeeSize);
         switch (coffeeSize.getCheckedRadioButtonId()) {
             case R.id.radioButton:
@@ -173,6 +177,12 @@ public class MainActivity extends AppCompatActivity {
             case R.id.radioButton2:
                 price = default_price * 150 / 100;
                 break;
+        }
+
+        if (!i) {
+            price = price * 0.9;
+        } else if (quantity < 6) {
+            price = price * 10 / 9;
         }
 
         return price;
