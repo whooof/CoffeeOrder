@@ -13,7 +13,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     int quantity = 1;
-    int default_price = 3;
+    double default_price = 3;
     double price = 3;
     boolean i = true;
 
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void addOne(View view) {
 
-        if (quantity >= 6 && i) {
+        if (quantity >= 5 && i) {
             toasty("Wow that's a big order! You will receive 20% discount", false);
             i = false;
         }
@@ -71,8 +71,7 @@ public class MainActivity extends AppCompatActivity {
         if (quantity == 1) {
             toasty("You can't go below 1!", false);
         } else {
-            if (!i && quantity < 6) {
-                price = price * 10 / 9;
+            if (!i && quantity < 7) {
                 i = true;
             }
             quantity--;
@@ -167,6 +166,8 @@ public class MainActivity extends AppCompatActivity {
 
     public double checkSize() {
         RadioGroup coffeeSize = (RadioGroup) findViewById(R.id.coffeeSize);
+
+
         switch (coffeeSize.getCheckedRadioButtonId()) {
             case R.id.radioButton:
                 price = default_price * 75 / 100;
@@ -181,8 +182,6 @@ public class MainActivity extends AppCompatActivity {
 
         if (!i) {
             price = price * 0.9;
-        } else if (quantity < 6) {
-            price = price * 10 / 9;
         }
 
         return price;
