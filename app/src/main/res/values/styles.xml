@@ -12,4 +12,9 @@
         <item name="android:background">@drawable/radiobuttonstyle</item>
         <item name="android:button">@drawable/radiobuttonimg</item>
     </style>
+
+    <style name="ToppingsRadioButton" parent="@android:style/Widget.CompoundButton">
+        <item name="android:background">@drawable/radiobuttonstyle</item>
+        <item name="android:button">@drawable/toppings</item>
+    </style>
 </resources>

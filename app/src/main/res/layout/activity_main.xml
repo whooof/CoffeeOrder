@@ -1,4 +1,8 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,133 +12,205 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:nestedScrollingEnabled="false">
+
+    <EditText
+        android:layout_width="327dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:layout_marginBottom="8dp"
+        android:hint="Type your name"
+        android:layout_gravity="right"
+        android:inputType="textCapWords"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="How many?"
+
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="18dp"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp"
+        android:gravity="left"
+        android:layout_marginLeft="8dp">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:background="@drawable/button"
+            android:onClick="subOne"
+            android:shadowColor="#2B4B6B"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"
+            android:text="-"
+            android:layout_gravity="center" />
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
+            android:id="@+id/display"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:ems="10"
+            android:inputType="number"
+            android:text="1"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold"
             android:layout_gravity="center"
-            android:text="How many?"
+            android:gravity="center_vertical|center_horizontal" />
 
-            android:textSize="20sp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginRight="28dp"
-            android:gravity="end"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/button"
-                android:layout_width="40dp"
-                android:layout_height="30dp"
-                android:background="@drawable/button"
-                android:onClick="subOne"
-                android:shadowColor="#2B4B6B"
-                android:shadowDx="0"
-                android:shadowDy="0"
-                android:shadowRadius="5"
-                android:text="-" />
-
-            <TextView
-                android:id="@+id/display"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="5dp"
-                android:ems="10"
-                android:gravity="center"
-                android:inputType="number"
-                android:text="1"
-                android:textAlignment="center"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="40dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="16dp"
-                android:background="@drawable/button"
-                android:onClick="addOne"
-                android:shadowColor="#2B4B6B"
-                android:shadowDx="0"
-                android:shadowDy="0"
-                android:shadowRadius="5"
-                android:text="+" />
-        </LinearLayout>
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="16dp"
+            android:background="@drawable/button"
+            android:onClick="addOne"
+            android:shadowColor="#2B4B6B"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"
+            android:text="+" />
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="18dp"
-        android:orientation="horizontal">
 
     <TextView
         android:id="@+id/coffeeSizeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="20dp"
         android:text="@string/coffee_size_label"
-        android:textSize="20sp" />
+        android:textSize="18sp"
+        android:layout_gravity="left"
+        android:layout_marginBottom="8dp" />
 
-        <RadioGroup
-            android:id="@+id/coffeeSize"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:weightSum="1">
+    <RadioGroup
+        android:id="@+id/coffeeSize"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_gravity="left|center"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp">
 
-            <RadioButton
-                android:id="@+id/radioButton"
-                style="@style/RadioButtonStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="15dp"
-                android:checked="false"
-                android:clickable="true"
-                android:hint="S"
-                android:padding="5dp"
-                android:textStyle="bold" />
+        <RadioButton
+            android:id="@+id/radioButton"
+            style="@style/RadioButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:clickable="true"
+            android:hint="S"
+            android:padding="5dp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_marginRight="16dp" />
 
-            <RadioButton
-                android:id="@+id/radioButton1"
-                style="@style/RadioButtonStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="15dp"
-                android:checked="true"
-                android:clickable="true"
-                android:hint="M"
-                android:padding="5dp"
-                android:textStyle="bold" />
+        <RadioButton
+            android:id="@+id/radioButton1"
+            style="@style/RadioButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:clickable="true"
+            android:hint="M"
+            android:padding="5dp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_marginRight="16dp" />
 
-            <RadioButton
-                android:id="@+id/radioButton2"
-                style="@style/RadioButtonStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="20dp"
-                android:layout_weight="0.45"
-                android:checked="false"
-                android:clickable="true"
-                android:hint="L"
-                android:padding="5dp"
-                android:textStyle="bold" />
-        </RadioGroup>
+        <RadioButton
+            android:id="@+id/radioButton2"
+            style="@style/RadioButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="false"
+            android:clickable="true"
+            android:hint="L"
+            android:padding="5dp"
+            android:textStyle="bold"
+            android:layout_gravity="center" />
+    </RadioGroup>
 
-    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Toppings:"
+        android:textSize="18sp"
+        android:textIsSelectable="true" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:rowCount="2"
+        android:columnCount="2">
+
+        <CheckBox
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Whipped Cream"
+            android:id="@+id/whippedCream"
+
+            android:layout_row="0"
+            android:layout_column="0"
+            style="@style/ToppingsRadioButton"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:checked="false"
+            android:onClick="refreshPrice" />
+
+        <CheckBox
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Chocolate flakes"
+            android:id="@+id/chocoFlakes"
+            android:onClick="refreshPrice"
+            android:layout_row="0"
+            android:layout_column="1"
+            style="@style/ToppingsRadioButton"
+            android:layout_marginBottom="8dp"
+            android:layout_margin="8dp"
+            android:layout_gravity="center"
+            android:checked="false" />
+
+        <CheckBox
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Caramel Syrup"
+            android:id="@+id/caramelSyrup"
+            android:onClick="refreshPrice"
+            android:layout_row="1"
+            android:layout_column="0"
+            style="@style/ToppingsRadioButton"
+            android:layout_margin="8dp"
+            android:checked="false" />
+
+        <CheckBox
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Vanilla Syrup"
+            android:id="@+id/vanillaSyrup"
+            android:onClick="refreshPrice"
+            android:layout_row="1"
+            android:layout_column="1"
+            style="@style/ToppingsRadioButton"
+            android:layout_margin="8dp"
+            android:layout_gravity="center"
+            android:checked="false" />
+
+    </GridLayout>
 
     <TextView
         android:id="@+id/textView2"
@@ -142,12 +218,13 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="18dp"
         android:text="@string/total_price"
-        android:textSize="20sp"
-        android:textStyle="italic" />
+        android:textSize="18sp"
+        android:textStyle="italic"
+        android:layout_marginTop="8dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="95dp"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -180,10 +257,11 @@
     <TextView
         android:id="@+id/thankYou"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:gravity="center"
-        android:textSize="24sp" />
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp" />
 
     <Button
         android:id="@+id/order"
@@ -191,14 +269,15 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
         android:background="@drawable/button"
         android:onClick="submitOrder"
         android:shadowColor="#2B4B6B"
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="5"
-        android:text="Order" />
+        android:text="Order"
+        android:layout_marginTop="8dp" />
 
 
 </LinearLayout>
+</ScrollView>
