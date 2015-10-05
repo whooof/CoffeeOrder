@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
     int quantity = 1;
     double default_price = 3;
     double price = 3;
-    boolean i = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +54,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * This method is called when the order button is clicked.
+     * Add one coffee
+     *
      */
 
     public void addOne(View view) {
@@ -67,6 +67,11 @@ public class MainActivity extends AppCompatActivity {
             displayPrice(calculatePrice());
         }
     }
+
+    /**
+     * Subtract one coffee
+     *
+     */
 
     public void subOne(View view) {
         if (quantity == 1) {
@@ -80,10 +85,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * This method is called when user clicks on one of the checkBoxes with toppings it update the
+     * TextView that shows price
+     *
+     */
+
     public void refreshPrice(View view) {
         displayPrice(calculatePrice());
     }
 
+
+    /**
+     * This method submit order after choosing quantity, size and toppings. It start a timer
+     * counting down time needed to prepare order
+     *
+     */
 
     public void submitOrder(View view) {
 
@@ -115,11 +132,12 @@ public class MainActivity extends AppCompatActivity {
 
 
     /**
-     * Calculates price
+     * Method that calculates chosen toppings price. It multiply quantity times price of each topping
+     * (if selected)
      *
-     * @return total price for ordered coffees
-     *
+     * @return total price of all selected toppings
      */
+
 
     private double toppingsPrice() {
 
@@ -138,6 +156,13 @@ public class MainActivity extends AppCompatActivity {
         return extra;
     }
 
+    /**
+     * Calculates price
+     *
+     * @return total price for ordered coffees
+     *
+     */
+
     private double calculatePrice() {
         price = checkSize();
         if ((price * quantity + toppingsPrice()) >= 10) {
@@ -148,14 +173,18 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /**
-     * This method displays the total price on the screen.
-     *
-     */
+
+
     private void thankYou(String msg) {
         TextView thankYou = (TextView) findViewById(R.id.thankYou);
         thankYou.setText(msg);
     }
+
+    /**
+     * This method displays the total price on the screen.
+     *
+     * @param price in double format will show price as a appended string
+     */
 
     private void displayPrice(double price) {
         TextView textView = (TextView) findViewById(
@@ -190,6 +219,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Checks what size of coffee is selected and change price accordingly.
+     * @return price per one cup.
+     */
 
     public double checkSize() {
         RadioGroup coffeeSize = (RadioGroup) findViewById(R.id.coffeeSize);
