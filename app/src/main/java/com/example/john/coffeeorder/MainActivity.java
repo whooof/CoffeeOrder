@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     int quantity = 1;
     double default_price = 3;
     double price = 3;
+    boolean showDiscountNotification = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -166,9 +167,13 @@ public class MainActivity extends AppCompatActivity {
     private double calculatePrice() {
         price = checkSize();
         if ((price * quantity + toppingsPrice()) >= 10) {
-            toasty("You've ordered for then 10$. Thank You you will receive 10% discount", false);
+            if (showDiscountNotification) {
+                toasty("You've ordered for then 10$. Thank You you will receive 10% discount", true);
+                showDiscountNotification = false;
+            }
             return (price * quantity + toppingsPrice()) * 0.8;
         } else {
+            showDiscountNotification = true;
             return price * quantity + toppingsPrice();
         }
     }
