@@ -118,7 +118,6 @@ public class MainActivity extends AppCompatActivity {
                     timeLeft.setText("Your order will be ready in: \n" + millisUntilFinished / 1000 + "s");
                     order.setEnabled(false);
                     animate(millisUntilFinished);
-                    thankYou("");
                 }
 
                 public void onFinish() {
@@ -170,10 +169,12 @@ public class MainActivity extends AppCompatActivity {
             if (showDiscountNotification) {
                 toasty("You've ordered for then 10$. Thank You you will receive 10% discount", true);
                 showDiscountNotification = false;
+                thankYou("Thank you for a big order! You receive 10% discount!");
             }
             return (price * quantity + toppingsPrice()) * 0.8;
         } else {
             showDiscountNotification = true;
+            thankYou("Add coffees for another: " + String.format("%.2f", 10-(price * quantity + toppingsPrice()))+"$ to get the discount!");
             return price * quantity + toppingsPrice();
         }
     }
