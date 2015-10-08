@@ -24,124 +24,149 @@
         android:layout_gravity="right"
         android:inputType="textCapWords"/>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="How many?"
-
-        android:textSize="18sp"
-        android:layout_marginBottom="8dp" />
-
     <LinearLayout
-        android:layout_width="174dp"
-        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginBottom="8dp"
-        android:gravity="left"
-        android:layout_marginLeft="8dp">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="40dp"
-            android:layout_height="30dp"
-            android:background="@drawable/button"
-            android:onClick="subOne"
-            android:shadowColor="#2B4B6B"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="5"
-            android:text="-"
-            android:layout_gravity="center" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/display"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:ems="10"
-            android:inputType="number"
-            android:text="1"
-            android:textAlignment="center"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:layout_gravity="center"
-            android:gravity="center_vertical|center_horizontal" />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="How many?"
 
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="40dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="16dp"
-            android:background="@drawable/button"
-            android:onClick="addOne"
-            android:shadowColor="#2B4B6B"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="5"
-            android:text="+" />
+                android:textSize="18sp"
+                android:layout_marginBottom="8dp" />
+
+            <LinearLayout
+                android:layout_width="174dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp"
+                android:gravity="left"
+                android:layout_marginLeft="8dp">
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/button"
+                    android:onClick="subOne"
+                    android:shadowColor="#2B4B6B"
+                    android:shadowDx="0"
+                    android:shadowDy="0"
+                    android:shadowRadius="5"
+                    android:text="-"
+                    android:layout_gravity="center" />
+
+                <TextView
+                    android:id="@+id/display"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:text="1"
+                    android:textAlignment="center"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:gravity="center_vertical|center_horizontal" />
+
+                <Button
+                    android:id="@+id/button3"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="16dp"
+                    android:background="@drawable/button"
+                    android:onClick="addOne"
+                    android:shadowColor="#2B4B6B"
+                    android:shadowDx="0"
+                    android:shadowDy="0"
+                    android:shadowRadius="5"
+                    android:text="+" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/coffeeSizeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/coffee_size_label"
+                android:textSize="18sp"
+                android:layout_gravity="left"
+                android:layout_marginBottom="8dp" />
+
+            <RadioGroup
+                android:id="@+id/coffeeSize"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3"
+                android:layout_gravity="left|center"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp">
+
+                <RadioButton
+                    android:id="@+id/radioButton"
+                    style="@style/RadioButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:clickable="true"
+                    android:hint="S"
+                    android:padding="5dp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:layout_marginRight="16dp" />
+
+                <RadioButton
+                    android:id="@+id/radioButton1"
+                    style="@style/RadioButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:clickable="true"
+                    android:hint="M"
+                    android:padding="5dp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:layout_marginRight="16dp" />
+
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    style="@style/RadioButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="false"
+                    android:clickable="true"
+                    android:hint="L"
+                    android:padding="5dp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="152dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="M"
+                android:id="@+id/coffeeSizeLabel"
+                android:layout_gravity="center"
+                android:textSize="50sp" />
+        </FrameLayout>
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/coffeeSizeText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/coffee_size_label"
-        android:textSize="18sp"
-        android:layout_gravity="left"
-        android:layout_marginBottom="8dp" />
-
-    <RadioGroup
-        android:id="@+id/coffeeSize"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="3"
-        android:layout_gravity="left|center"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp">
-
-        <RadioButton
-            android:id="@+id/radioButton"
-            style="@style/RadioButtonStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:checked="false"
-            android:clickable="true"
-            android:hint="S"
-            android:padding="5dp"
-            android:textStyle="bold"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:layout_marginRight="16dp" />
-
-        <RadioButton
-            android:id="@+id/radioButton1"
-            style="@style/RadioButtonStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:clickable="true"
-            android:hint="M"
-            android:padding="5dp"
-            android:textStyle="bold"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:layout_marginRight="16dp" />
-
-        <RadioButton
-            android:id="@+id/radioButton2"
-            style="@style/RadioButtonStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:checked="false"
-            android:clickable="true"
-            android:hint="L"
-            android:padding="5dp"
-            android:textStyle="bold"
-            android:layout_gravity="center" />
-    </RadioGroup>
 
     <TextView
         android:layout_width="wrap_content"

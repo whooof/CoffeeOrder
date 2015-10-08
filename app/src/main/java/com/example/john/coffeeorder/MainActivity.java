@@ -227,22 +227,26 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Checks what size of coffee is selected and change price accordingly.
+     * Also change CoffeeSizeLabel [To be replaced with according coffee size img]
      * @return price per one cup.
      */
 
     public double checkSize() {
         RadioGroup coffeeSize = (RadioGroup) findViewById(R.id.coffeeSize);
-
+        TextView coffeeSizeLabel = (TextView) findViewById(R.id.coffeeSizeLabel);
 
         switch (coffeeSize.getCheckedRadioButtonId()) {
             case R.id.radioButton:
                 price = default_price * 75 / 100;
+                coffeeSizeLabel.setText("S");
                 break;
             case R.id.radioButton1:
                 price = default_price;
+                coffeeSizeLabel.setText("M");
                 break;
             case R.id.radioButton2:
                 price = default_price * 150 / 100;
+                coffeeSizeLabel.setText("L");
                 break;
         }
 
