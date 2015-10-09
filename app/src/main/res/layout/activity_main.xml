@@ -156,15 +156,15 @@
 
         <FrameLayout
             android:layout_width="152dp"
-            android:layout_height="match_parent">
+            android:layout_height="140dp">
 
-            <TextView
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="M"
-                android:id="@+id/coffeeSizeLabel"
+                android:id="@+id/coffeeSizeImg"
                 android:layout_gravity="center"
-                android:textSize="50sp" />
+                android:scaleType="centerInside"
+                android:src="@drawable/m" />
         </FrameLayout>
     </LinearLayout>
 

@@ -233,20 +233,20 @@ public class MainActivity extends AppCompatActivity {
 
     public double checkSize() {
         RadioGroup coffeeSize = (RadioGroup) findViewById(R.id.coffeeSize);
-        TextView coffeeSizeLabel = (TextView) findViewById(R.id.coffeeSizeLabel);
+        ImageView coffeeSizeImg = (ImageView) findViewById(R.id.coffeeSizeImg);
 
         switch (coffeeSize.getCheckedRadioButtonId()) {
             case R.id.radioButton:
                 price = default_price * 75 / 100;
-                coffeeSizeLabel.setText("S");
+                coffeeSizeImg.setImageResource(R.drawable.s);
                 break;
             case R.id.radioButton1:
                 price = default_price;
-                coffeeSizeLabel.setText("M");
+                coffeeSizeImg.setImageResource(R.drawable.m);
                 break;
             case R.id.radioButton2:
                 price = default_price * 150 / 100;
-                coffeeSizeLabel.setText("L");
+                coffeeSizeImg.setImageResource(R.drawable.l);
                 break;
         }
 
