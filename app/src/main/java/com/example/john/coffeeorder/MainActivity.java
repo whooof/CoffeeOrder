@@ -123,7 +123,8 @@ public class MainActivity extends AppCompatActivity {
                 public void onFinish() {
                     timeLeft.setText("You can pick up yor order!");
                     order.setEnabled(true);
-                    thankYou("Thank you, " + editText.getText());
+                    String text = editText.getText().toString().length() == 0 ? "Stranger" : editText.getText().toString();
+                    thankYou("Thank you, " + text);
                     order.setText("Order Again!");
                 }
             }.start();
