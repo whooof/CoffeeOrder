@@ -166,14 +166,22 @@ public class MainActivity extends AppCompatActivity {
 
     private double calculatePrice() {
         price = checkSize();
-        if ((price * quantity + toppingsPrice()) >= 10) {
+        if ((price * quantity + toppingsPrice()) >= 10 && (price * quantity + toppingsPrice()) < 30 ) {
             if (showDiscountNotification) {
                 toasty("You've ordered for then 10$. Thank You you will receive 10% discount", true);
                 showDiscountNotification = false;
-                thankYou("Thank you for a big order! You receive 10% discount!");
             }
-            return (price * quantity + toppingsPrice()) * 0.8;
-        } else {
+            thankYou("Thank you for a big order! You receive 10% discount! " + String.format("%.2f", 30-(price * quantity + toppingsPrice()))+ "$ more for 30%");
+            return (price * quantity + toppingsPrice()) * 0.9;
+
+        } else if ((price * quantity + toppingsPrice()) >= 30){
+            toasty("You've ordered for then 30$. Thank You you will receive 30% discount", true);
+            showDiscountNotification = false;
+            thankYou("Thank you for a huge order! You receive 30% discount!");
+            return (price * quantity + toppingsPrice()) * 0.7;
+        }
+
+        else {
             showDiscountNotification = true;
             thankYou("Add coffees for another: " + String.format("%.2f", 10-(price * quantity + toppingsPrice()))+"$ to get the discount!");
             return price * quantity + toppingsPrice();
