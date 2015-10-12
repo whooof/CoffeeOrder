@@ -7,7 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -248,14 +250,17 @@ public class MainActivity extends AppCompatActivity {
             case R.id.radioButton:
                 price = default_price * 75 / 100;
                 coffeeSizeImg.setImageResource(R.drawable.s);
+                coffeeSizeImg.getLayoutParams().height = 155;
                 break;
             case R.id.radioButton1:
                 price = default_price;
                 coffeeSizeImg.setImageResource(R.drawable.m);
+                coffeeSizeImg.getLayoutParams().height = 200;
                 break;
             case R.id.radioButton2:
                 price = default_price * 150 / 100;
                 coffeeSizeImg.setImageResource(R.drawable.l);
+                coffeeSizeImg.getLayoutParams().height = 250;
                 break;
         }
 

@@ -156,13 +156,14 @@
 
         <FrameLayout
             android:layout_width="152dp"
-            android:layout_height="140dp">
+            android:layout_height="140dp"
+            android:id="@+id/fl">
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
                 android:id="@+id/coffeeSizeImg"
-                android:layout_gravity="center"
+                android:layout_gravity="center_horizontal|bottom"
                 android:scaleType="centerInside"
                 android:src="@drawable/m" />
         </FrameLayout>
