@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     int quantity = 1;
     double default_price = 3;
     double price = 3;
-    boolean showDiscountNotification = true;
+    int showDiscountNotification = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -169,22 +169,24 @@ public class MainActivity extends AppCompatActivity {
     private double calculatePrice() {
         price = checkSize();
         if ((price * quantity + toppingsPrice()) >= 10 && (price * quantity + toppingsPrice()) < 30 ) {
-            if (showDiscountNotification) {
-                toasty("You've ordered for then 10$. Thank You you will receive 10% discount", true);
-                showDiscountNotification = false;
+            if (showDiscountNotification == 1) {
+                toasty("You've ordered for more then 10$. Thank You you will receive 10% discount", true);
+                showDiscountNotification = 2;
             }
             thankYou("Thank you for a big order! You receive 10% discount! " + String.format("%.2f", 30-(price * quantity + toppingsPrice()))+ "$ more for 30%");
             return (price * quantity + toppingsPrice()) * 0.9;
 
         } else if ((price * quantity + toppingsPrice()) >= 30){
-            toasty("You've ordered for then 30$. Thank You you will receive 30% discount", true);
-            showDiscountNotification = false;
+            if (showDiscountNotification == 2) {
+            toasty("You've ordered for more then 30$. Thank You you will receive 30% discount", true);
+            showDiscountNotification = 1;
+            }
             thankYou("Thank you for a huge order! You receive 30% discount!");
             return (price * quantity + toppingsPrice()) * 0.7;
         }
 
         else {
-            showDiscountNotification = true;
+            showDiscountNotification = 1;
             thankYou("Add coffees for another: " + String.format("%.2f", 10-(price * quantity + toppingsPrice()))+"$ to get the discount!");
             return price * quantity + toppingsPrice();
         }
