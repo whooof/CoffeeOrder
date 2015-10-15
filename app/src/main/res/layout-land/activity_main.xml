@@ -27,12 +27,14 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:weightSum="3">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_weight="2">
 
             <TextView
                 android:id="@+id/textView"
@@ -44,16 +46,17 @@
                 android:layout_marginBottom="8dp" />
 
             <LinearLayout
-                android:layout_width="174dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginBottom="16dp"
                 android:gravity="left"
-                android:layout_marginLeft="8dp">
+                android:layout_marginLeft="8dp"
+                android:weightSum="11">
 
                 <Button
                     android:id="@+id/button"
-                    android:layout_width="40dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:background="@drawable/button"
                     android:onClick="subOne"
@@ -62,13 +65,13 @@
                     android:shadowDy="0"
                     android:shadowRadius="5"
                     android:text="-"
-                    android:layout_gravity="center" />
+                    android:layout_gravity="center"
+                    android:layout_weight="3" />
 
                 <TextView
                     android:id="@+id/display"
-                    android:layout_width="50dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
                     android:ems="10"
                     android:inputType="number"
                     android:text="1"
@@ -76,25 +79,28 @@
                     android:textSize="24sp"
                     android:textStyle="bold"
                     android:layout_gravity="center"
-                    android:gravity="center_vertical|center_horizontal" />
+                    android:gravity="center_vertical|center_horizontal"
+                    android:layout_weight="5"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp" />
 
                 <Button
                     android:id="@+id/button3"
-                    android:layout_width="40dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:layout_marginLeft="16dp"
                     android:background="@drawable/button"
                     android:onClick="addOne"
                     android:shadowColor="#2B4B6B"
                     android:shadowDx="0"
                     android:shadowDy="0"
                     android:shadowRadius="5"
-                    android:text="+" />
+                    android:text="+"
+                    android:layout_weight="3" />
             </LinearLayout>
 
             <RadioGroup
                 android:id="@+id/coffeeSize"
-                android:layout_width="162dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:weightSum="3"
@@ -153,16 +159,16 @@
         </LinearLayout>
 
         <FrameLayout
-            android:layout_width="152dp"
-            android:layout_height="140dp"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
             android:id="@+id/fl"
-            android:layout_gravity="right">
+            android:layout_weight="1">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="100dp"
                 android:id="@+id/coffeeSizeImg"
-                android:layout_gravity="center_horizontal|bottom"
+                android:layout_gravity="bottom|center_horizontal"
                 android:scaleType="centerInside"
                 android:src="@drawable/m"
                 android:layout_marginBottom="8dp" />
@@ -172,7 +178,6 @@
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:rowCount="2"
         android:columnCount="2"
         android:layout_marginTop="8dp"
@@ -180,7 +185,7 @@
         android:foregroundGravity="center">
 
         <CheckBox
-            android:layout_width="150dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:text="Whipped Cream"
             android:id="@+id/whippedCream"
@@ -190,9 +195,11 @@
             style="@style/ToppingsRadioButton"
             android:layout_gravity="center"
             android:checked="false"
-            android:onClick="refreshPrice" />
+            android:onClick="refreshPrice"
+            android:layout_marginRight="16dp" />
 
         <CheckBox
+            style="@style/ToppingsRadioButton"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Chocolate flakes"
@@ -200,12 +207,11 @@
             android:onClick="refreshPrice"
             android:layout_row="0"
             android:layout_column="1"
-            style="@style/ToppingsRadioButton"
-            android:layout_gravity="center"
-            android:checked="false" />
+            android:checked="false"
+            android:layout_gravity="left|right" />
 
         <CheckBox
-            android:layout_width="150dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:text="Caramel Syrup"
             android:id="@+id/caramelSyrup"
@@ -225,9 +231,9 @@
             android:layout_row="1"
             android:layout_column="1"
             style="@style/ToppingsRadioButton"
-            android:layout_gravity="center"
             android:checked="false"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="8dp"
+            android:layout_gravity="left|right" />
 
     </GridLayout>
 
