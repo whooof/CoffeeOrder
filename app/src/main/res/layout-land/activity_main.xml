@@ -22,7 +22,8 @@
         android:layout_marginBottom="8dp"
         android:hint="Type your name"
         android:layout_gravity="right"
-        android:inputType="textCapWords"/>
+        android:inputType="textCapWords"
+        android:textSize="24sp" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -42,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:text="Quantity and size"
 
-                android:textSize="18sp"
+                android:textSize="24sp"
                 android:layout_marginBottom="8dp" />
 
             <LinearLayout
@@ -52,12 +53,12 @@
                 android:layout_marginBottom="16dp"
                 android:gravity="left"
                 android:layout_marginLeft="8dp"
-                android:weightSum="11">
+                android:weightSum="5">
 
                 <Button
                     android:id="@+id/button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
+                    android:layout_width="88dp"
+                    android:layout_height="match_parent"
                     android:background="@drawable/button"
                     android:onClick="subOne"
                     android:shadowColor="#2B4B6B"
@@ -66,7 +67,7 @@
                     android:shadowRadius="5"
                     android:text="-"
                     android:layout_gravity="center"
-                    android:layout_weight="3" />
+                    android:textSize="36sp" />
 
                 <TextView
                     android:id="@+id/display"
@@ -80,14 +81,12 @@
                     android:textStyle="bold"
                     android:layout_gravity="center"
                     android:gravity="center_vertical|center_horizontal"
-                    android:layout_weight="5"
-                    android:layout_marginLeft="24dp"
-                    android:layout_marginRight="24dp" />
+                    android:layout_weight="5" />
 
                 <Button
                     android:id="@+id/button3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
+                    android:layout_width="88dp"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/button"
                     android:onClick="addOne"
                     android:shadowColor="#2B4B6B"
@@ -95,7 +94,7 @@
                     android:shadowDy="0"
                     android:shadowRadius="5"
                     android:text="+"
-                    android:layout_weight="3" />
+                    android:textSize="36sp" />
             </LinearLayout>
 
             <RadioGroup
@@ -120,7 +119,8 @@
                     android:textStyle="bold"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:layout_marginRight="16dp" />
+                    android:layout_marginRight="16dp"
+                    android:textSize="24sp" />
 
                 <RadioButton
                     android:id="@+id/radioButton1"
@@ -134,7 +134,8 @@
                     android:textStyle="bold"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:layout_marginRight="16dp" />
+                    android:layout_marginRight="16dp"
+                    android:textSize="24sp" />
 
                 <RadioButton
                     android:id="@+id/radioButton2"
@@ -147,14 +148,15 @@
                     android:hint="L"
                     android:padding="5dp"
                     android:textStyle="bold"
-                    android:layout_gravity="center" />
+                    android:layout_gravity="center"
+                    android:textSize="24sp" />
             </RadioGroup>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Toppings:"
-                android:textSize="18sp"
+                android:textSize="24sp"
                 android:textIsSelectable="true" />
         </LinearLayout>
 
@@ -196,7 +198,8 @@
             android:layout_gravity="center"
             android:checked="false"
             android:onClick="refreshPrice"
-            android:layout_marginRight="16dp" />
+            android:layout_marginRight="16dp"
+            android:textSize="24sp" />
 
         <CheckBox
             style="@style/ToppingsRadioButton"
@@ -208,7 +211,8 @@
             android:layout_row="0"
             android:layout_column="1"
             android:checked="false"
-            android:layout_gravity="left|right" />
+            android:layout_gravity="left|right"
+            android:textSize="24sp" />
 
         <CheckBox
             android:layout_width="300dp"
@@ -220,7 +224,8 @@
             android:layout_column="0"
             style="@style/ToppingsRadioButton"
             android:checked="false"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="8dp"
+            android:textSize="24sp" />
 
         <CheckBox
             android:layout_width="150dp"
@@ -233,7 +238,8 @@
             style="@style/ToppingsRadioButton"
             android:checked="false"
             android:layout_marginTop="8dp"
-            android:layout_gravity="left|right" />
+            android:layout_gravity="left|right"
+            android:textSize="24sp" />
 
     </GridLayout>
 
@@ -243,7 +249,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:text="@string/total_price"
-        android:textSize="18sp"
+        android:textSize="24sp"
         android:textStyle="bold|italic"
         android:layout_marginTop="8dp" />
 
@@ -285,7 +291,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:gravity="center"
-        android:textSize="18sp"
+        android:textSize="24sp"
         android:layout_marginBottom="8dp"
         android:textStyle="bold"
         android:textColor="#5e4200" />
