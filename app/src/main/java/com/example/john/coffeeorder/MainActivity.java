@@ -1,5 +1,7 @@
 package com.example.john.coffeeorder;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
@@ -109,7 +111,6 @@ public class MainActivity extends AppCompatActivity {
 
             ImageView coffee = (ImageView) findViewById(R.id.coffee);
             coffee.setVisibility(View.VISIBLE);
-
             new CountDownTimer(1000 * quantity, 1000) {
 
                 TextView timeLeft = (TextView) findViewById(R.id.timeLeft);
@@ -128,11 +129,24 @@ public class MainActivity extends AppCompatActivity {
                     String text = editText.getText().toString().length() == 0 ? "Stranger" : editText.getText().toString();
                     thankYou("Thank you, " + text);
                     order.setText("Order Again!");
+                    String summary = "Order Summary for " + text + "\n\nCoffees: " + quantity + "\n\nTotal Price: " + calculatePrice() + "$";
+                    composeEmail("", "Your order summary", summary);
                 }
             }.start();
 
         }
 
+
+    public void composeEmail(String address, String subject, String text){
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:"));
+        intent.putExtra(Intent.EXTRA_EMAIL, address);
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        intent.putExtra(Intent.EXTRA_TEXT, text);
+        if (intent.resolveActivity(getPackageManager()) != null){
+            startActivity(intent);
+        }
+    }
 
     /**
      * Method that calculates chosen toppings price. It multiply quantity times price of each topping
