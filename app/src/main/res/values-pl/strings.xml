@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">CoffeeOrder</string>
+
+    <string name="total_price">Cena całkowita:</string>
+    <string name="top_header">Ilość i wielkość</string>
+    <string name="toppings_header">Dodatki:</string>
+    <string name="topping_whipped">Bita śmietana</string>
+    <string name="choco_flakes">Płatki czekolada</string>
+    <string name="caramel_syrup">Syrop karmelowy</string>
+    <string name="vanilla_syrup">Syrop waniliowy</string>
+    <string name="order_button">Zamów</string>
+    <string name="discount_toast">Twoja łączna kwota zamówienia jest większa od XX$. Otrzymujesz YY% zniżkę.</string>
+</resources>

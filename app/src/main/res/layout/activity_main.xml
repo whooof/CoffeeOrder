@@ -38,7 +38,7 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Quantity and size"
+                android:text="@string/top_header"
 
                 android:textSize="18sp"
                 android:layout_marginBottom="8dp" />
@@ -147,7 +147,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Toppings:"
+                android:text="@string/toppings_header"
                 android:textSize="18sp"
                 android:textIsSelectable="true" />
         </LinearLayout>
@@ -182,7 +182,7 @@
         <CheckBox
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="Whipped Cream"
+            android:text="@string/topping_whipped"
             android:id="@+id/whippedCream"
 
             android:layout_row="0"
@@ -195,7 +195,7 @@
         <CheckBox
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="Chocolate flakes"
+            android:text="@string/choco_flakes"
             android:id="@+id/chocoFlakes"
             android:onClick="refreshPrice"
             android:layout_row="0"
@@ -207,7 +207,7 @@
         <CheckBox
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="Caramel Syrup"
+            android:text="@string/caramel_syrup"
             android:id="@+id/caramelSyrup"
             android:onClick="refreshPrice"
             android:layout_row="1"
@@ -219,7 +219,7 @@
         <CheckBox
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="Vanilla Syrup"
+            android:text="@string/vanilla_syrup"
             android:id="@+id/vanillaSyrup"
             android:onClick="refreshPrice"
             android:layout_row="1"
@@ -288,15 +288,13 @@
         android:id="@+id/order"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
         android:background="@drawable/button"
         android:onClick="submitOrder"
         android:shadowColor="#2B4B6B"
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="5"
-        android:text="Order"
+        android:text="@string/order_button"
         android:layout_marginTop="8dp" />
 
 

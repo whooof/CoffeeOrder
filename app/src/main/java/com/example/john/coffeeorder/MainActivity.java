@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.ViewDebug;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -136,6 +137,14 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+    /**
+     * This method compose a implicit intent to send a mail with provided params.
+     *
+     * @param address address of the recipient
+     * @param subject subject of a newly created email message
+     * @param text text of the email
+     */
+
 
     public void composeEmail(String address, String subject, String text){
         Intent intent = new Intent(Intent.ACTION_SENDTO);
@@ -174,6 +183,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
+     * This method allows to generate discount text for a Toast in different languages it take two arguments.
+     *
+     * @param price int set here the lowest price needed for the discount
+     * @param discount int set how big the discount is
+     * @return generated text for a toast
+     *
+     * TODO add discount calculations, change method name
+     */
+
+
+    public String generateToast(int price, int discount) {
+        String text = getString(R.string.discount_toast);
+        text = text.replace("XX", String.valueOf(price));
+        text = text.replace("YY", String.valueOf(discount));
+        return text;
+    }
+
+    /**
      * Calculates price
      *
      * @return total price for ordered coffees
@@ -184,7 +211,7 @@ public class MainActivity extends AppCompatActivity {
         price = checkSize();
         if ((price * quantity + toppingsPrice()) >= 10 && (price * quantity + toppingsPrice()) < 30 ) {
             if (showDiscountNotification == 1) {
-                toasty("You've ordered for more then 10$. Thank You you will receive 10% discount", true);
+                toasty(generateToast(10,10), true);
                 showDiscountNotification = 2;
             }
             thankYou("Thank you for a big order! You receive 10% discount! " + String.format("%.2f", 30-(price * quantity + toppingsPrice()))+ "$ more for 30%");
@@ -192,7 +219,7 @@ public class MainActivity extends AppCompatActivity {
 
         } else if ((price * quantity + toppingsPrice()) >= 30){
             if (showDiscountNotification == 2) {
-            toasty("You've ordered for more then 30$. Thank You you will receive 30% discount", true);
+            toasty(generateToast(30,30), true);
             showDiscountNotification = 1;
             }
             thankYou("Thank you for a huge order! You receive 30% discount!");
