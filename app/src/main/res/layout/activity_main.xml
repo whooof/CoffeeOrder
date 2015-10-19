@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/editText"
         android:layout_marginBottom="8dp"
-        android:hint="Type your name"
+        android:hint="@string/hint_name"
         android:layout_gravity="right"
         android:inputType="textCapWords"/>
 

@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void addOne(View view) {
         if (quantity == 30) {
-            toasty("You can't order more then 50!", true);
+            toasty(getString(R.string.warning_more50), true);
         } else {
             quantity++;
             display(quantity);
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void subOne(View view) {
         if (quantity == 1) {
-            toasty("You can't go below 1!", true);
+            toasty(getString(R.string.warning_below1), true);
         } else {
 
             quantity--;
@@ -119,19 +119,18 @@ public class MainActivity extends AppCompatActivity {
                 EditText editText = (EditText) findViewById(R.id.editText);
 
                 public void onTick(long millisUntilFinished) {
-                    timeLeft.setText("Your order will be ready in: \n" + millisUntilFinished / 1000 + "s");
+                    timeLeft.setText("Order ready in: " + millisUntilFinished / 1000 + "s");
                     order.setEnabled(false);
                     animate(millisUntilFinished);
                 }
 
                 public void onFinish() {
-                    timeLeft.setText("You can pick up yor order!");
+                    timeLeft.setText(R.string.order_ready);
                     order.setEnabled(true);
-                    String text = editText.getText().toString().length() == 0 ? "Stranger" : editText.getText().toString();
-                    thankYou("Thank you, " + text);
-                    order.setText("Order Again!");
-                    String summary = "Order Summary for " + text + "\n\nCoffees: " + quantity + "\n\nTotal Price: " + calculatePrice() + "$";
-                    composeEmail("", "Your order summary", summary);
+                    String name = editText.getText().toString().length() == 0 ? "Stranger" : editText.getText().toString();
+                    order.setText(R.string.order_again);
+                    String summary = getString(R.string.summary_text, quantity, calculatePrice());
+                    composeEmail("", getString(R.string.summary_subject, name), summary);
                 }
             }.start();
 
@@ -222,13 +221,14 @@ public class MainActivity extends AppCompatActivity {
             toasty(generateToast(30,30), true);
             showDiscountNotification = 1;
             }
-            thankYou("Thank you for a huge order! You receive 30% discount!");
+            thankYou(getString(R.string.discount_huge));
             return (price * quantity + toppingsPrice()) * 0.7;
         }
 
         else {
             showDiscountNotification = 1;
-            thankYou("Add coffees for another: " + String.format("%.2f", 10-(price * quantity + toppingsPrice()))+"$ to get the discount!");
+            String till_discount = String.format("%.2f",10-(price * quantity + toppingsPrice()));
+            thankYou(getString(R.string.req_for10dis));
             return price * quantity + toppingsPrice();
         }
     }
@@ -249,7 +249,7 @@ public class MainActivity extends AppCompatActivity {
     private void displayPrice(double price) {
         TextView textView = (TextView) findViewById(
                 R.id.textView2);
-        textView.setText("Total price: " + String.format("%.2f", price) + "$");
+        textView.setText(getString(R.string.total_price) + String.format("%.2f", price) + "$");
 
     }
     /**

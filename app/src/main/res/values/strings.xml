@@ -1,6 +1,11 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">CoffeeOrder</string>
 
+    <string name="req_for10dis">Add coffees for another: <xliff:g id="till_discount" example="1">%s</xliff:g>$ to get the 10% discount!</string>
+
+    <string name="summary_subject">Order summary for <xliff:g id="name" example="Stranger">%s</xliff:g></string>
+    <string name="summary_text">Number of coffees: <xliff:g id="quantity" example="1">%d</xliff:g> \n\nTotal price: <xliff:g id="price" example="0">%.2f</xliff:g></string>
+    <string name="discount_huge">Thank you for a huge order! You receive 30% discount!</string>
     <string name="total_price">Total Price:</string>
     <string name="top_header">Quantity and size</string>
     <string name="toppings_header">Toppings:</string>
@@ -10,4 +15,10 @@
     <string name="vanilla_syrup">Vanilla Syrup</string>
     <string name="order_button">Order</string>
     <string name="discount_toast">You\'ve ordered for more then XX$. Thank You you will receive YY% discount.</string>
+    <string name="hint_name">Type your name here</string>
+    <string name="order_ready">You can pick up yor order!</string>
+    <string name="order_again">Order Again!</string>
+    <string name="warning_more50">You can\'t order more then 30!</string>
+    <string name="warning_below1">You can\'t go below 1!</string>
+
 </resources>
