@@ -36,11 +36,8 @@
 
             <TextView
                 android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/Header"
                 android:text="@string/top_header"
-
-                android:textSize="18sp"
                 android:layout_marginBottom="8dp" />
 
             <LinearLayout
@@ -99,7 +96,7 @@
                 android:orientation="horizontal"
                 android:weightSum="3"
                 android:layout_gravity="left|center"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="18dp"
                 android:layout_marginLeft="8dp">
 
                 <RadioButton
@@ -145,11 +142,8 @@
             </RadioGroup>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/toppings_header"
-                android:textSize="18sp"
-                android:textIsSelectable="true" />
+                style="@style/Header"
+                android:text="@string/toppings_header" />
         </LinearLayout>
 
         <FrameLayout
@@ -233,11 +227,9 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/Header"
         android:layout_marginBottom="8dp"
         android:text="@string/total_price"
-        android:textSize="18sp"
         android:textStyle="bold|italic"
         android:layout_marginTop="8dp" />
 
