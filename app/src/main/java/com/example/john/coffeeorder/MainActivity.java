@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
                 EditText editText = (EditText) findViewById(R.id.editText);
 
                 public void onTick(long millisUntilFinished) {
-                    timeLeft.setText("Order ready in: " + millisUntilFinished / 1000 + "s");
+                    timeLeft.setText(getString(R.string.order_prepare) + " " + millisUntilFinished / 1000 + "s");
                     order.setEnabled(false);
                     animate(millisUntilFinished);
                 }
@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onFinish() {
                     timeLeft.setText(R.string.order_ready);
                     order.setEnabled(true);
-                    String name = editText.getText().toString().length() == 0 ? "Stranger" : editText.getText().toString();
+                    String name = editText.getText().toString().length() == 0 ? getString(R.string.stranger) : editText.getText().toString();
                     order.setText(R.string.order_again);
                     String summary = getString(R.string.summary_text, quantity, calculatePrice());
                     composeEmail("", getString(R.string.summary_subject, name), summary);
@@ -213,7 +213,7 @@ public class MainActivity extends AppCompatActivity {
                 toasty(generateToast(10,10), true);
                 showDiscountNotification = 2;
             }
-            thankYou("Thank you for a big order! You receive 10% discount! " + String.format("%.2f", 30-(price * quantity + toppingsPrice()))+ "$ more for 30%");
+            thankYou(getString(R.string.req_for30dis).replace("XX", String.format("%.2f", 30-(price * quantity + toppingsPrice()))));
             return (price * quantity + toppingsPrice()) * 0.9;
 
         } else if ((price * quantity + toppingsPrice()) >= 30){
@@ -227,8 +227,7 @@ public class MainActivity extends AppCompatActivity {
 
         else {
             showDiscountNotification = 1;
-            String till_discount = String.format("%.2f",10-(price * quantity + toppingsPrice()));
-            thankYou(getString(R.string.req_for10dis));
+            thankYou(getString(R.string.req_for10dis).replace("XX", String.format("%.2f",(10-(price * quantity + toppingsPrice())))));
             return price * quantity + toppingsPrice();
         }
     }

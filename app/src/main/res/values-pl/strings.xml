@@ -1,7 +1,11 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">CoffeeOrder</string>
 
-    <string name="req_for10dis">Dodaj kawy o wartości <xliff:g id="till_discount" example="1">%s</xliff:g>$ by otrzymać 10% zniżkę!</string>
+    <string name="order_prepare">Zamówienie gotowe za: </string>
+    <string name="stranger">Nieznajomy</string>
+
+    <string name="req_for30dis">Dziękujemy za dużę zamówienie! Otrzymujesz 10\%% zniżki! Dodaj kawy o wartości: XX$ by otrzymać 30%"</string>
+    <string name="req_for10dis">Dodaj kawy o wartości: XX$ by otrzymać 10\%% zniżkę!</string>
 
     <string name="summary_text">Liczba kaw: <xliff:g id="quantity" example="1">%d</xliff:g> \n\nCena całkowita: <xliff:g id="price" example="0">%.2f</xliff:g></string>
     <string name="summary_subject">Podsumowanie zamówienie dla <xliff:g id="name" example="Stranger">%s</xliff:g></string>
@@ -15,7 +19,7 @@
     <string name="order_button">Zamów</string>
     <string name="discount_toast">Twoja łączna kwota zamówienia jest większa od XX$. Otrzymujesz YY% zniżkę.</string>
     <string name="hint_name">Wpisz swoje imię</string>
-    <string name="discount_huge">Dziękujemy za duże zamówienie! Otrzymujesz 30% zniżkę!</string>
+    <string name="discount_huge">Dziękujemy za duże zamówienie! Otrzymujesz 30\%% zniżkę!</string>
     <string name="order_ready">Możesz odebrać zamówienie!</string>
     <string name="order_again">Zamów ponownie!</string>
     <string name="warning_more50">Nie możesz zamówić więcej niż 30 kaw!</string>
