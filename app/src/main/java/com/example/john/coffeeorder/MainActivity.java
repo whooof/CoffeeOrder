@@ -1,12 +1,15 @@
 package com.example.john.coffeeorder;
 
 import android.content.Intent;
+import android.graphics.Point;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Display;
 import android.view.View;
 import android.view.ViewDebug;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -16,6 +19,8 @@ import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Currency;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -287,22 +292,25 @@ public class MainActivity extends AppCompatActivity {
     public double checkSize() {
         RadioGroup coffeeSize = (RadioGroup) findViewById(R.id.coffeeSize);
         ImageView coffeeSizeImg = (ImageView) findViewById(R.id.coffeeSizeImg);
+        WindowManager display = getWindowManager();
+        Point size = new Point();
+        display.getDefaultDisplay().getSize(size);
 
         switch (coffeeSize.getCheckedRadioButtonId()) {
             case R.id.radioButton:
                 price = default_price * 75 / 100;
                 coffeeSizeImg.setImageResource(R.drawable.s);
-                coffeeSizeImg.getLayoutParams().height = 155;
+                coffeeSizeImg.getLayoutParams().height = size.x / 5;
                 break;
             case R.id.radioButton1:
                 price = default_price;
                 coffeeSizeImg.setImageResource(R.drawable.m);
-                coffeeSizeImg.getLayoutParams().height = 200;
+                coffeeSizeImg.getLayoutParams().height = size.x / 4;
                 break;
             case R.id.radioButton2:
                 price = default_price * 150 / 100;
                 coffeeSizeImg.setImageResource(R.drawable.l);
-                coffeeSizeImg.getLayoutParams().height = 250;
+                coffeeSizeImg.getLayoutParams().height = size.x / 3;
                 break;
         }
 
